@@ -2,6 +2,7 @@
 using ColossalFramework.UI;
 using CSM.Commands;
 using CSM.Commands.Data.Internal;
+using CSM.Commands.Handler.Internal;
 using CSM.Container;
 using CSM.Helpers;
 using CSM.Networking;
@@ -358,6 +359,13 @@ namespace CSM.Panels
                 Username = playerName,
                 Message = text
             };
+
+
+            #region JUST FOR DEBUG
+            ChirpPanel chirpPane;
+            chirpPane = GameObject.Find("ChirperPanel").GetComponent<ChirpPanel>();
+            chirpPane.AddMessage(new ChirpMess(0, playerName, text));
+            #endregion
 
             Command.SendToAll(message);
 
