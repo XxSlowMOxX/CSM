@@ -1,6 +1,7 @@
 ﻿using CSM.Commands.Data.Internal;
 using CSM.Networking;
 using CSM.Networking.Status;
+using CSM.Helpers;
 
 namespace CSM.Commands.Handler.Internal
 {
@@ -19,6 +20,7 @@ namespace CSM.Commands.Handler.Internal
             }
             else
             {
+                SpeedPauseHelper.PlayPauseRequest(true, 0, -1); //Pauses Game on Player joining
                 MultiplayerManager.Instance.BlockGame(command.JoiningUsername);
             }
         }
